@@ -23,11 +23,11 @@ public class TestCircuits
 		Composant []composants;
 		composants = new Composant[7];
 		composants[0] = new Interrupteur();
-		composants[1] = (Interrupteur) new Interrupteur();
-		composants[2] = (Interrupteur) new Interrupteur();
-		composants[3] = (Or) new Or();
-		composants[4] = (Not) new Not();
-		composants[5] = (And) new And();
+		composants[1] = new Interrupteur();
+		composants[2] = new Interrupteur();
+		composants[3] = new Or();
+		composants[4] = new Not();
+		composants[5] = new And();
 		composants[6] = new Vanne();
 
 		//Connexions
