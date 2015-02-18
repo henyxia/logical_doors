@@ -9,4 +9,6 @@ public abstract class Composant
 	{
 		return getId();
 	}
+
+	public abstract boolean getEtat() throws NonConnecteException;
 }

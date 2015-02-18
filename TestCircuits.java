@@ -1,5 +1,20 @@
 public class TestCircuits
 {
+	private static void traceEtats(Composant[] cps)
+	{
+		for(int i=0; i<cps.length; i++)
+		{
+			try
+			{
+				System.out.println(cps[i].getId() + (cps[i].getEtat() ? " On" : " Off"));
+			}
+			catch(NonConnecteException ex)
+			{
+				System.out.println(cps[i].getId() + " Un des composants n'est pas connecté");
+			}
+		}
+	}
+
 	private static void printIds(Composant[] cps)
 	{
 		for(int i=0; i<cps.length; i++)
@@ -43,6 +58,8 @@ public class TestCircuits
 		printIds(composants);
 		System.out.println("Description des composants");
 		descCps(composants);
+		System.out.println("Liste des états");
+		traceEtats(composants);
 		System.out.println("Au revoir!");
 	}
 }
