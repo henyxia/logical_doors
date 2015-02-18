@@ -45,6 +45,7 @@ public class TestCircuits
 		((Or)composants[3]).setIn1(composants[0]);
 		((Or)composants[3]).setIn2(composants[1]);
 		((Not)composants[4]).setIn(composants[2]);
+		((Not)composants[4]).setIn(new Sonde(composants[2], "in"));
 
 		//Affichage
 		System.out.println("Liste des composants");
