@@ -4,14 +4,7 @@ public class TestCircuits
 	{
 		for(int i=0; i<cps.length; i++)
 		{
-			try
-			{
-				System.out.println(cps[i].getId() + (cps[i].getEtat() ? " On" : " Off"));
-			}
-			catch(NonConnecteException ex)
-			{
-				System.out.println(cps[i].getId() + " Un des composants n'est pas connecté");
-			}
+			System.out.println(cps[i].traceEtat());
 		}
 	}
 

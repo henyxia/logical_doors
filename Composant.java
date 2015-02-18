@@ -11,4 +11,16 @@ public abstract class Composant
 	}
 
 	public abstract boolean getEtat() throws NonConnecteException;
+
+	public String traceEtat()
+	{
+			try
+			{
+				return getId() + (getEtat() ? " On" : " Off");
+			}
+			catch(NonConnecteException ex)
+			{
+				return getId() + " Un des composants n'est pas connecté";
+			}
+	}
 }
