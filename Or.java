@@ -1,12 +1,7 @@
 public class Or extends Porte2Entrees
 {
-	public boolean getEtat() throws NonConnecteException
+	public boolean eval() throws NonConnecteException
 	{
-		if(super.in1 == null)
-			throw new NonConnecteException();
-		else if(super.in2 == null)
-			throw new NonConnecteException();
-		else
-			return super.in1.getEtat() | super.in2.getEtat();
+		return in1.getEtat() | in2.getEtat();
 	}
 }

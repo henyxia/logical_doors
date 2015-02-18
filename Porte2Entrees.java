@@ -2,6 +2,8 @@ public abstract class Porte2Entrees extends Porte
 {	
 	protected Composant in1;
 	protected Composant in2;
+
+	public abstract boolean eval() throws NonConnecteException;
 	
 	public void setIn1(Composant comp)
 	{	
@@ -16,5 +18,15 @@ public abstract class Porte2Entrees extends Porte
 	public String description()
 	{
 		return getId() + " in1: " + (in1 == null ? "Non connecté" : in1.getId()) + " in2: " + (in2 == null ? "Non connecté" : in2.getId());
+	}
+
+	public boolean getEtat() throws NonConnecteException
+	{
+		if(in1 == null)
+			throw new NonConnecteException();
+		else if(in2 == null)
+			throw new NonConnecteException();
+		else
+			return eval();
 	}
 }
