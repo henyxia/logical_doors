@@ -15,6 +15,6 @@ public abstract class Porte2Entrees extends Porte
 
 	public String description()
 	{
-		return getId() + " in1: " + in1.getId() + " in2:" + in2.getId();
+		return getId() + " in1: " + (in1 == null ? "Non connecté" : in1.getId()) + " in2: " + (in2 == null ? "Non connecté" : in2.getId());
 	}
 }

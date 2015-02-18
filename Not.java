@@ -9,6 +9,6 @@ public class Not extends Porte
 
 	public String description()
 	{
-		return getId() + " in: " + in.getId();
+		return getId() + " in: " + (in == null ? "Non connecté" : in.getId());
 	}
 }
