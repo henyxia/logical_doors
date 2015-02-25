@@ -45,7 +45,8 @@ public class TestCircuits
 		((Or)composants[3]).setIn1(composants[0]);
 		((Or)composants[3]).setIn2(composants[1]);
 		((Not)composants[4]).setIn(composants[2]);
-		((Not)composants[4]).setIn(new LazyProbe(composants[2], "in"));
+		//((Not)composants[4]).setIn(new LazyProbe(composants[2], "in"));
+		Circuit circuit = new Circuit("my cool circuit", composants);
 
 		//Affichage
 		System.out.println("Liste des composants");
@@ -54,6 +55,8 @@ public class TestCircuits
 		descCps(composants);
 		System.out.println("Liste des états");
 		traceEtats(composants);
+		System.out.println("Description du circuit");
+		circuit.description();
 		System.out.println("Au revoir!");
 	}
 }

@@ -1,4 +1,4 @@
-public abstract class Composant
+public abstract class Composant implements Comparable<Composant>
 {	
 	public String getId()
 	{	
@@ -23,4 +23,10 @@ public abstract class Composant
 				return getId() + " Un des composants n'est pas connecté";
 			}
 	}
+
+	public int compareTo(Composant cp)
+	{
+		return this.description().compareTo(cp.description());
+	}
+
 }
