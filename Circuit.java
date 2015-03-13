@@ -2,14 +2,35 @@ import java.util.*;
 
 public class Circuit
 {
-	private String nom;
-	private List<Composant> composants = new ArrayList<Composant>();
+	private		String nom;
+	private		List<Composant> composants = new ArrayList<Composant>();
+	protected	ProbeTable probt = new ProbeTable();
 
 	public Circuit(String nom, Composant[] cps)
 	{
 		this.nom = nom;
 		composants.addAll(Arrays.asList(cps));
 		Collections.sort(composants);
+	}
+
+	public void initProbe()
+	{
+		/*
+		Iterator<Composant> iter = new composants.values().iterator();
+		while(iter.hasNext())
+		{
+			iter.next();
+			//TODO
+		}
+		*/
+	}
+
+	public void resetProbe()
+	{
+	}
+
+	public void destroyProbe()
+	{
 	}
 
 	public List<String> nomenclature()
