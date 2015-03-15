@@ -7,6 +7,11 @@ public class Not extends Porte
 		in = comp;	
 	}
 
+	public Composant getIn()
+	{
+		return in;
+	}
+
 	public boolean getEtat() throws NonConnecteException
 	{
 		if(in == null)

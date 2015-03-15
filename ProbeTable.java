@@ -18,7 +18,8 @@ public class ProbeTable
 	{
 		try
 		{
-			return inteToProbe.get(inte);
+			LazyProbe out = inteToProbe.get(inte);
+			return out;
 		}
 		catch(NullPointerException e)
 		{
@@ -38,5 +39,7 @@ public class ProbeTable
 
 	public void clear()
 	{
+		probeToInte.clear();
+		inteToProbe.clear();
 	}
 }

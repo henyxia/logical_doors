@@ -15,6 +15,16 @@ public abstract class Porte2Entrees extends Porte
 		in2 = comp;
 	}
 
+	public Composant getIn1()
+	{
+		return in1;
+	}
+
+	public Composant getIn2()
+	{
+		return in2;
+	}
+
 	public String description()
 	{
 		return getId() + " in1: " + (in1 == null ? "Non connecté" : in1.getId()) + " in2: " + (in2 == null ? "Non connecté" : in2.getId());
