@@ -25,9 +25,9 @@ public class Circuit
 				System.out.print("\n\tHas two input");
 				if(((Porte2Entrees) cmp).getIn1() instanceof Interrupteur)
 				{
-					System.out.print("\n\t\tSwitch 1 switched to a LazyProbe");
 					LazyProbe tmp = probt.getProbe((Interrupteur)((Porte2Entrees) cmp).getIn1(), cmp, "in1");
 					((Porte2Entrees) cmp).setIn1(tmp);
+					System.out.print("\n\t\tSwitch 1 switched to a LazyProbe (ID "+tmp.getId()+")");
 				}
 				else
 					System.out.print("\n\t\tNot a switch on pin 1");
@@ -65,6 +65,48 @@ public class Circuit
 
 	public void destroyProbe()
 	{
+		Composant cmp;
+		for(int i=0; i<composants.size(); i++)
+		{
+			cmp = composants.get(i);
+			System.out.print(cmp.getId());
+			if(cmp instanceof Porte2Entrees)
+			{
+				System.out.print("\n\tHas two input");
+				if(((Porte2Entrees) cmp).getIn1() instanceof LazyProbe)
+				{
+					System.out.print("\n\t\tLazyProbe 1 reverted to a Switch");
+					Interrupteur tmp = probt.getInterrupteur((LazyProbe)((Porte2Entrees) cmp).getIn1());
+					((Porte2Entrees) cmp).setIn1(tmp);
+				}
+				else
+					System.out.print("\n\t\tNot a lazy probe on pin 1");
+				if(((Porte2Entrees) cmp).getIn2() instanceof LazyProbe)
+				{
+					System.out.print("\n\t\tLazyProbe 2 switched to a Switch");
+					Interrupteur tmp = probt.getInterrupteur((LazyProbe)((Porte2Entrees) cmp).getIn2());
+					((Porte2Entrees) cmp).setIn2(tmp);
+				}
+				else
+					System.out.print("\n\t\tNot a lazy probe on pin 2");
+
+
+			}
+			else if(cmp instanceof Porte)
+			{
+				System.out.print("\n\tHas one input");
+				if(((Not) cmp).getIn() instanceof LazyProbe)
+				{
+					System.out.print("\n\t\tLazyProbe switched to a Switch");
+					Interrupteur tmp = probt.getInterrupteur((LazyProbe)((Not) cmp).getIn());
+					((Not) cmp).setIn(tmp);
+				}
+				else
+					System.out.print("\n\t\tNot a lazy probe");
+			}
+			System.out.print("\n");
+		}
+
 	}
 
 	public List<String> nomenclature()

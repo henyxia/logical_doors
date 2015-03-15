@@ -19,6 +19,7 @@ public class ProbeTable
 		try
 		{
 			LazyProbe out = inteToProbe.get(inte);
+			System.out.print("\n\t\tProbe exists and ID is "+out.getId());
 			return out;
 		}
 		catch(NullPointerException e)

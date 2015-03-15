@@ -49,14 +49,18 @@ public class TestCircuits
 		Circuit circuit = new Circuit("my cool circuit", composants);
 
 		//Affichage
-		//System.out.println("Part list");
-		//printIds(composants);
-		//System.out.println("\nPart description");
-		//descCps(composants);
-		//System.out.println("\nState list");
-		//traceEtats(composants);
+		System.out.println("Part list");
+		printIds(composants);
+		System.out.println("\nPart description");
+		descCps(composants);
+		System.out.println("\nState list");
+		traceEtats(composants);
 		System.out.println("\nInitializing probes");
 		circuit.initProbe();
+		System.out.println("\nCircuit description");
+		circuit.description();
+		System.out.println("\nDestroying probes");
+		circuit.destroyProbe();
 		System.out.println("\nCircuit description");
 		circuit.description();
 		System.out.println("\nBood bye!");
