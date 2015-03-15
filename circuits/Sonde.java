@@ -1,3 +1,5 @@
+package circuits;
+
 import java.util.Scanner;
 
 public class Sonde extends Composant

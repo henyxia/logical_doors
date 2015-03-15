@@ -1,3 +1,5 @@
+package circuits;
+
 public class Interrupteur extends Composant
 {
 	protected Composant in;

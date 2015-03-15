@@ -1,10 +1,17 @@
-public class Vanne extends Composant
+package circuits;
+
+public class Not extends Porte
 {	
 	protected Composant in;
 	
 	public void setIn(Composant comp)
-	{	
+	{
 		in = comp;	
+	}
+
+	public Composant getIn()
+	{
+		return in;
 	}
 
 	public boolean getEtat() throws NonConnecteException
@@ -12,11 +19,11 @@ public class Vanne extends Composant
 		if(in == null)
 			throw new NonConnecteException();
 		else
-			return in.getEtat();
+			return !in.getEtat();
 	}
 
 	public String description()
 	{
-		return getId() + " in: " + in.getId();
+		return getId() + " in: " + (in == null ? "Non connecté" : in.getId());
 	}
 }

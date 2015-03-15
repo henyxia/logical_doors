@@ -1,3 +1,5 @@
+package circuits;
+
 public class LazyProbe extends Sonde
 {
 	private boolean isSet = false;

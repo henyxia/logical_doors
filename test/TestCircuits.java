@@ -1,3 +1,7 @@
+package test;
+
+import circuits.*;
+
 public class TestCircuits
 {
 	private static void traceEtats(Composant[] cps)

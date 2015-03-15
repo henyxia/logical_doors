@@ -1,3 +1,5 @@
+package circuits;
+
 import java.util.*;
 
 public class ProbeTable

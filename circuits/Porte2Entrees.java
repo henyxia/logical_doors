@@ -1,3 +1,5 @@
+package circuits;
+
 public abstract class Porte2Entrees extends Porte
 {	
 	protected Composant in1;

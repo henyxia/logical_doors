@@ -1,3 +1,5 @@
+package circuits;
+
 public abstract class Composant implements Comparable<Composant>
 {	
 	public String getId()
