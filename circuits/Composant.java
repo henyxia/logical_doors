@@ -1,6 +1,8 @@
 package circuits;
 
-public abstract class Composant implements Comparable<Composant>
+import java.io.Serializable;
+
+public abstract class Composant implements Comparable<Composant>, Serializable
 {	
 	public String getId()
 	{	

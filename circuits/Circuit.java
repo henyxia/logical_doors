@@ -1,8 +1,9 @@
 package circuits;
 
 import java.util.*;
+import java.io.*;
 
-public class Circuit
+public class Circuit implements Serializable
 {
 	private		String nom;
 	private		List<Composant> composants = new ArrayList<Composant>();
@@ -154,5 +155,55 @@ public class Circuit
 			if(composants.get(i) instanceof Vanne)
 				outs.add((Vanne) composants.get(i));
 		return outs;
+	}
+
+	public void save(String filename)
+	{
+		try
+		{
+			ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(filename));
+			//out.writeObject(this.nom);
+			System.out.println("t1");
+			out.writeObject(this);
+			System.out.println("t2");
+			//out.writeObject(this.probt);
+			//System.out.println("t3");
+			//out.close();
+			//System.out.println("t4");
+		}
+		catch(FileNotFoundException e)
+		{
+			System.out.println("Unable to open write file");
+		}
+		catch(IOException e)
+		{
+			System.out.println("IO error : " + e.getMessage());
+		}
+	}
+
+	public void load(String filename)
+	{
+		try
+		{
+			this.composants.clear();
+			ObjectInputStream in = new ObjectInputStream(new FileInputStream(filename));
+			//this.nom = (String) in.readObject();
+			this.composants = (List<Composant>) in.readObject();
+			//this.probt = (ProbeTable) in.readObject();
+			System.out.println("Loading done");
+			in.close();
+		}
+		catch(FileNotFoundException e)
+		{
+			System.out.println("Unable to open read file");
+		}
+		catch(IOException e)
+		{
+			System.out.println("IO error");
+		}
+		catch(ClassNotFoundException e)
+		{
+			System.out.println("Unable to find class");
+		}
 	}
 }
