@@ -3,7 +3,9 @@ package circuits;
 import java.io.Serializable;
 
 public abstract class Composant implements Comparable<Composant>, Serializable
-{	
+{
+	private static final long serialVersionUID = 7526471135622776147L;
+
 	public String getId()
 	{	
 		return super.toString(); // class@numero renvoye par Object	

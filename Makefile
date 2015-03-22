@@ -1,5 +1,5 @@
 CC= javac
-CCFLAGS=-g -Werror #-Xlint
+CCFLAGS=-g -Werror -encoding ISO-8859-1 #-Xlint
 
 P_CIRCUIT_SRC=circuits/And.java circuits/Composant.java circuits/LazyProbe.java
 P_CIRCUIT_SRC+=circuits/Not.java circuits/Porte2Entrees.java circuits/ProbeTable.java

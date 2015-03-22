@@ -5,6 +5,8 @@ import java.io.*;
 
 public class Circuit implements Serializable
 {
+	private static final long serialVersionUID = 7586471155622776147L;
+
 	private		String nom;
 	private		List<Composant> composants = new ArrayList<Composant>();
 	protected	ProbeTable probt = new ProbeTable();
@@ -162,14 +164,10 @@ public class Circuit implements Serializable
 		try
 		{
 			ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(filename));
-			//out.writeObject(this.nom);
-			System.out.println("t1");
-			out.writeObject(this);
-			System.out.println("t2");
-			//out.writeObject(this.probt);
-			//System.out.println("t3");
-			//out.close();
-			//System.out.println("t4");
+			out.writeObject(this.nom);
+			out.writeObject(this.composants);
+			System.out.println("\nBackup Done");
+			out.close();
 		}
 		catch(FileNotFoundException e)
 		{
@@ -187,8 +185,13 @@ public class Circuit implements Serializable
 		{
 			this.composants.clear();
 			ObjectInputStream in = new ObjectInputStream(new FileInputStream(filename));
-			//this.nom = (String) in.readObject();
-			this.composants = (List<Composant>) in.readObject();
+			this.nom = (String) in.readObject();
+			//@SuppressWarnings("unchecked")
+			Object obj = in.readObject();
+			if(obj instanceof ArrayList)
+				this.composants = (List<Composant>) obj;
+			else
+				System.out.println("Load failed");
 			//this.probt = (ProbeTable) in.readObject();
 			System.out.println("Loading done");
 			in.close();

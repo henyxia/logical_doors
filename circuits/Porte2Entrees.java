@@ -1,7 +1,9 @@
 package circuits;
 
 public abstract class Porte2Entrees extends Porte
-{	
+{
+	private static final long serialVersionUID = 7526471155612776147L;
+
 	protected Composant in1;
 	protected Composant in2;
 

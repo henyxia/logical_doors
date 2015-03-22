@@ -1,7 +1,8 @@
 package circuits;
 
 public class Not extends Porte
-{	
+{
+	private static final long serialVersionUID = 7526471155522776147L;
 	protected Composant in;
 	
 	public void setIn(Composant comp)

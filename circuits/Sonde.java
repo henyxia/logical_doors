@@ -4,6 +4,8 @@ import java.util.Scanner;
 
 public class Sonde extends Composant
 {
+	private static final long serialVersionUID = 7526470155622776147L;
+
 	private String connector;
 	private Composant cmp;
 
