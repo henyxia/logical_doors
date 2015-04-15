@@ -10,6 +10,8 @@ public class Circuit implements Serializable
 	private		String nom;
 	private		List<Composant> composants = new ArrayList<Composant>();
 	protected	ProbeTable probt = new ProbeTable();
+	protected	Map<String, Interrupteur> inputs = new LinkedHashMap<String, Interrupteur>();
+	protected	Map<String, Vanne> outputs = new LinkedHashMap<String, Vanne>();
 
 	public Circuit(String nom, Composant[] cps)
 	{
@@ -121,6 +123,24 @@ public class Circuit implements Serializable
 			noms.add(composants.get(i).getId());
 
 		return noms;
+	}
+
+	public void addCmp(String type, String name)
+	{
+		if(type.equals("in"))
+		{
+			Interrupteur cp = new Interrupteur();
+			composants.add(cp);
+			inputs.put(name, cp);
+		}
+		else if(type.equals("out"))
+		{
+			Vanne cp = new Vanne();
+			composants.add(cp);
+			outputs.put(name, cp);
+		}
+		else
+			System.out.printf("New item " + type + " not recognized (name : " + name + ")");
 	}
 
 	public void TraceEtats()
