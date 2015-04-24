@@ -13,6 +13,10 @@ public class Circuit implements Serializable
 	protected	Map<String, Interrupteur> inputs = new LinkedHashMap<String, Interrupteur>();
 	protected	Map<String, Vanne> outputs = new LinkedHashMap<String, Vanne>();
 
+	public Circuit()
+	{
+	}
+
 	public Circuit(String nom, Composant[] cps)
 	{
 		this.nom = nom;
